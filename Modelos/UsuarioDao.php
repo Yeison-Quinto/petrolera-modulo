@@ -10,6 +10,7 @@ class UsuarioDao {
             try {
                 $sql = "INSERT INTO usuario (contraseña, rol ) VALUES (:contraseña, :rol )";
                 $sentencia = $conexion->prepare($sql);
+                //$sentencia->bindParam(':idusuario', $UsuarioDto->getIdusuario(), PDO::PARAM_INT);
                 $sentencia->bindParam(':contraseña', $UsuarioDto->getContraseña(), PDO::PARAM_STR);
                 $sentencia->bindParam(':rol', $UsuarioDto->getRol(), PDO::PARAM_STR);
                 $insertado = $sentencia->execute();
